@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "c6aba5ba-cb68-44f7-8516-c4af3f0da8b1",
+		"name": "Twillo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25192554"
+	},
+	"item": [
+		{
+			"name": "SMS",
+			"item": [
+				{
+					"name": "Message_Log",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.twilio.com/2010-04-01/Accounts/{{TWILIO_ACC_SID}}/Messages.json",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twilio",
+								"com"
+							],
+							"path": [
+								"2010-04-01",
+								"Accounts",
+								"{{TWILIO_ACC_SID}}",
+								"Messages.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "To",
+									"value": "+919731288115",
+									"type": "text"
+								},
+								{
+									"key": "Body",
+									"value": "Sent from Postman!",
+									"type": "text"
+								},
+								{
+									"key": "MediaURL",
+									"value": "https://media.giphy.com/media/26DNdTDb8ihLDhCla/giphy.gif",
+									"type": "text"
+								},
+								{
+									"key": "From",
+									"value": "{{TWILIO_PHONE_NUM}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.twilio.com/2010-04-01/Accounts/{{TWILIO_ACC_SID}}/Messages.json",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twilio",
+								"com"
+							],
+							"path": [
+								"2010-04-01",
+								"Accounts",
+								"{{TWILIO_ACC_SID}}",
+								"Messages.json"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "\\[Twilio Documentation\\]([https://www.twilio.com/docs/sms/api/message-resource#create-a-message-resource](https://www.twilio.com/docs/sms/api/message-resource?code-sample=code-read-list-all-messages&code-language=Node.js&code-sdk-version=3.x))"
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{TWILIO_AUTH_TOKEN}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{TWILIO_ACC_SID}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "TWILIO_ACC_SID",
+			"value": "Your account SID",
+			"type": "string"
+		},
+		{
+			"key": "TWILIO_AUTH_TOKEN",
+			"value": "Your Auth token",
+			"type": "string"
+		},
+		{
+			"key": "TWILIO_PHONE_NUM",
+			"value": "Your Twilio number",
+			"type": "string"
+		}
+	]
+}
